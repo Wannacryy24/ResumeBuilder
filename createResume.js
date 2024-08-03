@@ -50,15 +50,46 @@ export function createResumeHeading(){
     document.getElementById('preview').addEventListener('click',function(){
         saveIntoObj();
     })
-}
-
-function saveIntoObj(){
-    var inputid = document.getElementById('fname').value;
-    console.log(inputid);
- var data = `
-            <div class='name'>
-                <div class='nameList'><h1>${inputid}</h1></div>
-                <div class='lastNameList'></div>
-            </div>`
-document.querySelector('.renderResume').innerHTML=data;
+}function saveIntoObj() {
+    // Get all input elements inside the form
+    var inputs = document.querySelectorAll('.personalDetails input');
+    
+    // Initialize an empty string to build the resume data
+    var data = '<div class="resumeDetails">';
+    
+    // Variable to hold name data
+    var nameData = {};
+    
+    // Iterate over each input element
+    inputs.forEach(function(input) {
+        // Get the input id and value
+        var id = input.id;
+        var value = input.value;
+        
+        // Find the corresponding label text
+        var label = document.querySelector(`label[for="${id}"]`);
+        var labelText = label ? label.innerText : '';
+        
+        // Store the value in nameData if it's related to name
+        if (id === 'fname' || id === 'lname') {
+            nameData[id] = value;
+        } else {
+            // Add other input's data to the resume details
+            if (value) {
+                data += `<p><strong>${labelText}:</strong> ${value}</p>`;
+            }
+        }
+    });
+    
+    // Add name data to the top of the resume details
+    if (nameData.fname || nameData.lname) {
+        data = `<div class="resumeDetails">
+                    <h2>${nameData.fname || ''} ${nameData.lname || ''}</h2>` + data;
+    }
+    
+    // Close the div tag
+    data += '</div>';
+    
+    // Insert the HTML into the .renderResume div
+    document.querySelector('.renderResume').innerHTML = data;
 }
