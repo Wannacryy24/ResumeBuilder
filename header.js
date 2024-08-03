@@ -1,3 +1,4 @@
+import { createResumeHeading } from "./createResume.js";
 export function createLandingHeader(){
     let headerHtml = `
                         <div id='left-div'>Resume Builder</div>
@@ -59,4 +60,5 @@ export function landingPageDetails(){
         </div>
      </div>
     `
+    document.querySelector('.create-btn-resume').addEventListener('click',createResumeHeading)
 }

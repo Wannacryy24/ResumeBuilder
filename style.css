@@ -8,6 +8,7 @@
 body{
 
 }
+
 header{
   padding-left: 5vw;
   padding-right: 5vw;
@@ -17,6 +18,10 @@ header{
   width: 100%;
   height: 10vh;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.color-grey{
+  color: rgb(130, 139, 162);
+  font-size: 1.2rem;
 }
 #left-div{
   font-family: "Space Grotesk", sans-serif;
@@ -160,4 +165,67 @@ header{
 .workHistoryDiv:hover{
   transition: .5s;
   box-shadow: 0 22px 30px rgba(0, 0, 0, 0.2);; 
+}
+
+
+/* REnder Details When Creating Resume  */
+.wrapperDivForDetails{
+  display: flex;
+  justify-content: space-between;
+}
+
+form{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  
+}
+
+.personalDetails{
+  width: 50vw;
+  display: flex;
+  padding: 15px;
+}
+.nameDiv ,.cityCountryDiv,.phoneEmailDiv{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.nameDiv div{
+  display: flex;
+  flex-direction: column;
+}
+.cityCountryDiv div{
+  display: flex;
+  flex-direction: column;
+}
+
+.phoneEmailDiv div{
+  display: flex;
+  flex-direction: column;
+}
+.commonInputCss{
+  border-radius: 3px;
+  padding: 12px 16px;
+  width: 100%;
+  display: block;
+  caret-color: rgb(26, 145, 240);
+  background-color: rgb(239, 242, 249);
+  outline: none;
+  border: 0px;
+  color: rgb(30, 37, 50);
+  transition: color 0.1s;
+}
+#preview{
+  margin-left: 20px;
+  margin-top: 20px;
+  background-color: #2C4BFF;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: box-shadow 0.3s ease;
 }
